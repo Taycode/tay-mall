@@ -1,7 +1,7 @@
 {
-  "name": "product_service",
+  "name": "customer_service",
   "version": "1.0.0",
-  "description": "Product Service",
+  "description": "Customer Service",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,13 @@
     "dev": "nodemon index.js"
   },
   "keywords": [
-    "product"
+    "customer"
   ],
   "author": "Abdulmateen Tairu",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.13.2",
     "nodemon": "^2.0.10"
   }
 }
