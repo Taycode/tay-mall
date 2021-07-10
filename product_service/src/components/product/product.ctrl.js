@@ -1,6 +1,6 @@
 const ProductCtrl = {
-    async home(req, res, _next){
-        return res.send('App is Live');
-    }
-}
+  async home(req, res) {
+    return res.send('App is Live');
+  },
+};
 module.exports = Object.freeze(ProductCtrl);

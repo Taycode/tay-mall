@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const OrderController = require('../components/order/order.ctrl');
 
-const router = Router()
+const router = Router();
 
 router.get('/', OrderController.home);
 

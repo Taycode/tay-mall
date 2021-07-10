@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "lint": "eslint --fix --ext .js,.jsx ."
   },
   "keywords": [
     "product"
@@ -18,5 +19,10 @@
     "express": "^4.17.1",
     "mongoose": "^5.13.2",
     "nodemon": "^2.0.10"
+  },
+  "devDependencies": {
+    "eslint": "^7.30.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4"
   }
 }

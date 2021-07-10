@@ -1,3 +1,5 @@
+const OrderRoute = require('./order.rtr');
+
 module.exports = (app) => {
-    app.use('', require('./order'));
+  app.use('', OrderRoute);
 };

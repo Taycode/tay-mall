@@ -1,4 +1,6 @@
+const ProductRoute = require('./product.rtr');
+
 module.exports = (app) => {
-    app.use('', require('./product'));
-    return app
-}
+  app.use('', ProductRoute);
+  return app;
+};
