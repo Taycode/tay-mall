@@ -1,11 +1,13 @@
 const express = require('express');
 const cors = require('cors');
 const routes = require('./routes');
+const database = require('./database');
 
 const App = {
-  boot() {
+  async boot() {
     const app = express();
     app.use(cors());
+    await database.connect();
     routes(app);
     return app;
   },

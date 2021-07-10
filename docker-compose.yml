@@ -8,6 +8,8 @@ services:
     - "3000:3000"
     volumes:
     - ./product_service:/usr/src/product-service
+    depends_on:
+      - tay-mall-db
 
   customer-service:
     container_name: customer-service
@@ -17,6 +19,8 @@ services:
       - "3001:3000"
     volumes:
       - ./customer_service:/usr/src/customer-service
+    depends_on:
+      - tay-mall-db
 
   payment-service:
     container_name: payment-service
@@ -26,6 +30,8 @@ services:
       - "3002:3000"
     volumes:
       - ./payment_service:/usr/src/payment-service
+    depends_on:
+      - tay-mall-db
 
   order-service:
     container_name: order-service
@@ -35,14 +41,16 @@ services:
       - "3003:3000"
     volumes:
       - ./order_service:/usr/src/order-service
+    depends_on:
+      - tay-mall-db
 
-  mongo:
-    container_name: mongo
+  tay-mall-db:
+    container_name: tay-mall-db
     image: mongo
     volumes:
       - data:/data/db
     ports:
-      - "27017:27017"
+      - "27018:27017"
 
 volumes:
   data:
