@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const routes = require('./routes');
 const database = require('./database');
+const docs = require('./docs');
 
 const App = {
   async boot() {
@@ -9,6 +10,7 @@ const App = {
     app.use(cors());
     await database.connect();
     routes(app);
+    docs(app);
     return app;
   },
 };
