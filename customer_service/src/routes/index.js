@@ -1,4 +1,6 @@
+const customerRoute = require('./customer');
+
 module.exports = (app) => {
-    app.use('', require('./customer'));
-    return app
-}
+  app.use('', customerRoute);
+  return app;
+};
