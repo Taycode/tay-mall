@@ -35,3 +35,14 @@ services:
       - "3003:3000"
     volumes:
       - ./order_service:/usr/src/order-service
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - data:/data/db
+    ports:
+      - "27017:27017"
+
+volumes:
+  data:
