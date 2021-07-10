@@ -36,3 +36,20 @@
  *       400:
  *         description: Error
  */
+
+/**
+ * @swagger
+ * /get:
+ *   get:
+ *     summary: Fetch One Product
+ *     tags: [Product]
+ *     parameters:
+ *       - in: query
+ *         name: productId
+ *         required: true
+ *     responses:
+ *         201:
+ *           description: Created
+ *         400:
+ *           description: Error
+ */

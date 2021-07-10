@@ -12,7 +12,8 @@ class BaseRepository {
   }
 
   findById(id) {
-    return this.Model.findOne({ _id: id });
+    return this.Model.findById(id)
+      .catch(() => null);
   }
 
   all(condition = {}) {
