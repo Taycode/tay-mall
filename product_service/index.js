@@ -7,7 +7,7 @@ const Server = {
         const app = await App.boot();
         const server = http.createServer(app);
 
-        return server.listen(5000);
+        return server.listen(3000);
     },
 };
 

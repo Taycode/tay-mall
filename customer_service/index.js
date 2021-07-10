@@ -5,7 +5,7 @@ const Server = {
     async start(){
         const app = await  App.boot();
         const server = http.createServer(app)
-        return server.listen(5001)
+        return server.listen(3000)
     }
 }
 
