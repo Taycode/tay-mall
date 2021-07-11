@@ -7,6 +7,8 @@ const App = {
   boot() {
     const app = express();
     app.use(cors());
+    app.use(express.json());
+    app.use(express.urlencoded());
     routes(app);
     docs(app);
     return app;

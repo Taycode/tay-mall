@@ -22,6 +22,10 @@ const OrderCtrl = {
         orderId: createdOrder._id,
         amount: createdOrder.amount,
       });
+
+      // eslint-disable-next-line no-underscore-dangle
+      createdOrder.orderId = createdOrder._id;
+
       return res.status(201).json(createdOrder);
     } catch (error) {
       return res.status(400).json({ message: 'An Error Occurred' });
