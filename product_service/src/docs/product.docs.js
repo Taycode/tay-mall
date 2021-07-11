@@ -23,16 +23,12 @@
  *         description: Created
  *       400:
  *         description: Error
- *       406:
- *         description: Validation Error
- *       422:
- *         description: User Exists
  *   get:
  *     summary: Fetch Products
  *     tags: [Product]
  *     responses:
- *       201:
- *         description: Created
+ *       200:
+ *         description: Successful
  *       400:
  *         description: Error
  */
@@ -48,8 +44,8 @@
  *         name: productId
  *         required: true
  *     responses:
- *         201:
- *           description: Created
+ *         200:
+ *           description: Successful
  *         400:
  *           description: Error
  */
