@@ -5,7 +5,14 @@ const OrderController = {
     try {
       const payload = req.body;
       payload.customerId = 'myName';
-      const order = await OrderService.makeOrder(payload);
+      const order = await OrderService.makeOrder({
+        customerId: payload.customerId,
+        productId: payload.productId,
+        amount: payload.amount,
+        address: payload.address,
+        phoneNumber: payload.phoneNumber,
+        email: payload.email,
+      });
       return res.status(201).json(order);
     } catch (error) {
       return res.status(400).json({ message: 'An Error Occurred' });
