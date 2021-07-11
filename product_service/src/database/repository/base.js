@@ -19,6 +19,10 @@ class BaseRepository {
   all(condition = {}) {
     return this.Model.find(condition);
   }
+
+  createMany(data = []) {
+    return this.Model.insertMany(data);
+  }
 }
 
 module.exports = BaseRepository;
