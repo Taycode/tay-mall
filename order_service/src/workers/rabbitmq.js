@@ -7,17 +7,9 @@ const RabbitMQ = {
     await channel.assertQueue(queue);
     return channel;
   },
-  consumeQueue(queue, callback) {
-    this.start(queue)
-      .then((channel) => {
-        channel.consume(queue, (msg) => {
-          callback(msg);
-          channel.ack(msg);
-        }, { noAck: false });
-      });
-  },
-  consumeTransactions(callback) {
-    this.consumeQueue('transactions', callback);
+  async sendToQueue(queue, message) {
+    const channel = await this.start(queue);
+    channel.sendToQueue(queue, Buffer.from(JSON.stringify(message)));
   },
 };
 

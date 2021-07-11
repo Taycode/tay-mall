@@ -5,7 +5,7 @@ const OrderSchema = new Schema({
   productId: { type: String, required: true },
   amount: { type: Number, required: true },
   address: { type: String, required: true },
-  phoneNumber: { type: Number, required: true },
+  phoneNumber: { type: String, required: true },
   email: { type: String, required: true },
   status: {
     type: String,
@@ -14,6 +14,6 @@ const OrderSchema = new Schema({
   },
   paid: { type: String, default: false },
   transactionReference: { type: String },
-});
+}, { timestamps: true });
 
 module.exports = model('orders', OrderSchema);
