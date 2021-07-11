@@ -32,6 +32,7 @@ services:
       - ./payment_service:/usr/src/payment-service
     depends_on:
       - tay-mall-db
+      - rabbitmq
 
   order-service:
     container_name: order-service
@@ -51,6 +52,13 @@ services:
       - data:/data/db
     ports:
       - "27018:27017"
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+      - 5673:5672
+      - 15672:15672
 
 volumes:
   data:

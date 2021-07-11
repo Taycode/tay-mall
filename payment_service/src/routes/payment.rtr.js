@@ -3,6 +3,6 @@ const PaymentController = require('../components/payment/payment.ctrl');
 
 const router = Router();
 
-router.get('/', PaymentController.home);
+router.post('/listen', PaymentController.listenToPayment);
 
 module.exports = Object.freeze(router);
