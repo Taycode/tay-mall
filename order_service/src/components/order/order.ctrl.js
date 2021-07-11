@@ -31,5 +31,23 @@ const OrderCtrl = {
       return res.status(400).json({ message: 'An Error Occurred' });
     }
   },
+  async update(req, res) {
+    try {
+      const { orderId } = req.query;
+      const { status } = req.body;
+      if (!orderId) {
+        return res.status(400).json({ message: 'orderId is required in query params' });
+      }
+      const order = await OrderRepository.findById(orderId);
+      if (!order) {
+        return res.status(404).json({ message: 'Order not Found' });
+      }
+      order.status = status;
+      order.save();
+      return res.status(200).json({ message: 'Order updated' });
+    } catch (error) {
+      return res.status(400).json({ message: 'An Error Occurred' });
+    }
+  },
 };
 module.exports = Object.freeze(OrderCtrl);

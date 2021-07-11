@@ -23,6 +23,10 @@ class BaseRepository {
   createMany(data = []) {
     return this.Model.insertMany(data);
   }
+
+  updateOne(condition = {}, data = {}) {
+    return this.Model.updateOne(condition, data);
+  }
 }
 
 module.exports = BaseRepository;
