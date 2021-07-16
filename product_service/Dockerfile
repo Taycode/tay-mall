@@ -5,4 +5,4 @@ COPY package.json /usr/src/product-service/
 RUN npm install
 COPY . /usr/src/product-service
 EXPOSE 3000
-CMD [ "npm", "run", "dev" ]
+CMD [ "npm", "start" ]

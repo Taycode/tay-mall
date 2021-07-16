@@ -5,4 +5,4 @@ COPY package.json /usr/src/customer-service/
 RUN npm install
 COPY . /usr/src/customer-service
 EXPOSE 3001
-CMD [ "npm", "run", "dev" ]
+CMD [ "npm", "start" ]

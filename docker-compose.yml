@@ -8,6 +8,7 @@ services:
     - "3000:3000"
     volumes:
     - ./product_service:/usr/src/product-service
+    - /usr/src/product-service/node_modules
     depends_on:
       - tay-mall-db
 
@@ -19,20 +20,25 @@ services:
       - "3001:3000"
     volumes:
       - ./customer_service:/usr/src/customer-service
+      - /usr/src/customer-service/node_modules
     depends_on:
       - tay-mall-db
 
   payment-service:
     container_name: payment-service
-    restart: always
     build: payment_service/
     ports:
       - "3002:3000"
     volumes:
       - ./payment_service:/usr/src/payment-service
+      - /usr/src/payment-service/node_modules
     depends_on:
       - tay-mall-db
       - rabbitmq
+    links:
+      - tay-mall-db
+      - rabbitmq
+    restart: always
 
   order-service:
     container_name: order-service
@@ -42,8 +48,10 @@ services:
       - "3003:3000"
     volumes:
       - ./order_service:/usr/src/order-service
+      - /usr/src/order-service/node_modules
     depends_on:
       - tay-mall-db
+      - rabbitmq
 
   tay-mall-db:
     container_name: tay-mall-db
@@ -59,6 +67,11 @@ services:
     ports:
       - 5673:5672
       - 15672:15672
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:15672" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
 volumes:
   data:

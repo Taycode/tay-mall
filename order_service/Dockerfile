@@ -5,4 +5,4 @@ COPY package.json /usr/src/order-service/
 RUN npm install
 COPY . /usr/src/order-service
 EXPOSE 3003
-CMD [ "npm", "run", "dev" ]
+CMD [ "npm", "start" ]
